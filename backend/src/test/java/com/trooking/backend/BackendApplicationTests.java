@@ -51,6 +51,18 @@ class BackendApplicationTests {
 	}
 
 	@Test
+	void returnsHotelInfo() throws Exception {
+		api
+				.perform(get("/api/hotels/1"))
+				.andExpectAll(
+						status().isOk(),
+						jsonPath("$.name", equalTo("Hotel Miami")),
+						jsonPath("$.description", equalTo("Fabuloso")),
+						jsonPath("$.pricePerNight", equalTo(300.0)),
+						jsonPath("$.photoUrl", equalTo("placeholder")));
+	}
+
+	@Test
 	void returnsAnEmptyListOfBookings() throws Exception {
 
 		api
