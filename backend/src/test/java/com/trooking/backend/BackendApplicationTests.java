@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
@@ -19,7 +20,7 @@ class BackendApplicationTests {
 	private MockMvc api;
 
 	@Test
-	void contextLoads() throws Exception {
+	void returnsListOfHotels() throws Exception {
 
 		api
 				.perform(get("/api/hotels"))
@@ -30,6 +31,18 @@ class BackendApplicationTests {
 						jsonPath("$[0].description", equalTo("Fabuloso")),
 						jsonPath("$[0].pricePerNight", equalTo(300.0)),
 						jsonPath("$[0].photoUrl", equalTo("placeholder")));
+
+	}
+
+
+	@Test
+	void returnsAnEmptyListOfBookings() throws Exception {
+
+		api
+				.perform(get("/api/bookings"))
+				.andExpectAll(
+						status().isOk(),
+						jsonPath("$", empty()));
 
 	}
 
