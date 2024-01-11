@@ -23,3 +23,28 @@ In order to run the included tests, do:
 ```
 ./mvnw test
 ```
+
+
+### Troubleshooting
+
+- When using Visual Studio Code, you may want to update your settings with the following static imports for Java:
+
+```
+//...
+"java.completion.favoriteStaticMembers": [
+        "org.junit.Assert.*",
+        "org.junit.Assume.*",
+        "org.junit.jupiter.api.Assertions.*",
+        "org.junit.jupiter.api.Assumptions.*",
+        "org.junit.jupiter.api.DynamicContainer.*",
+        "org.junit.jupiter.api.DynamicTest.*",
+        "org.hamcrest.MatcherAssert.*",
+        "org.mockito.Mockito.*",
+        "org.mockito.ArgumentMatchers.*",
+        "org.mockito.Answers.*",
+        // SpringBoot Stuff
+        "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
+        "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
+    ]
+//...
+```
