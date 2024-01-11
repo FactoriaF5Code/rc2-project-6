@@ -14,7 +14,7 @@ public class Hotel {
     @GeneratedValue(strategy = IDENTITY)
     Long id;
     String name;
-    String photo;
+    String photoUrl;
     String description;
     Double pricePerNight;
     
@@ -28,8 +28,8 @@ public class Hotel {
     }
 
 
-    public String getPhoto() {
-        return photo;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
 
