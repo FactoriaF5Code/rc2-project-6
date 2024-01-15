@@ -1,5 +1,16 @@
 # Trooking API
 
+This API implements the following methods
+
+| Method | Path | Comments |
+|------- | ----| ---------|
+| GET | /api/hotels | returns the existing hotels |
+| GET | /api/bookings | returns the existing bookings |
+| POST | /api/bookings | allows to create a new booking. Example request body: `{ "hotelId": 2, "entryDay": "2024-05-01", "exitDay": "2024-05-03" }` |
+
+It's recommended to launch the server (port 8080 by default) and then test the API using Postman or other similar tool.
+
+
 ## Setup and run
 
 This project uses Java 17 or higher.
